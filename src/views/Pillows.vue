@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Combien d'oreillers dans votre vie ?</h1>
-        <img src="../assets/coussins/1.png" />
+        <img :src="getImgUrl()" />
         <div id="count">
             <button v-if="isMinCount()" v-on:click="decrement">-</button>
             <div>{{pillowCount}}</div>
@@ -40,6 +40,14 @@
 
     isMinCount() {
         return this.pillowCount > MIN_PILLOWS;
+    }
+
+    getImgUrl() {
+        try {
+            return require(`../assets/coussins/${this.pillowCount}.png`);
+        } catch (error) {
+            return null;
+        }
     }
 
   }
