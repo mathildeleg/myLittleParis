@@ -11,6 +11,9 @@
     "object-literal-sort-keys": false,
     "no-consecutive-blank-lines": false,
     "no-console": [false],
-    "member-access": [true, "no-public"]
+    "member-access": [true, "no-public"],
+    "whitespace": [
+      false
+    ]
   }
 }

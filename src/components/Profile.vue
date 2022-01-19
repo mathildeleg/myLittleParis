@@ -32,16 +32,15 @@
 
 <script lang="ts">
   import {Component, Prop, Vue} from 'vue-property-decorator';
-  import {State, Action, Getter} from 'vuex-class';
-  import {ProfileState} from '../store/profile/types';
+  import {Action, Getter} from 'vuex-class';
 
   const namespace: string = 'profile';
 
   @Component
   export default class Profile extends Vue {
-    @State('profile') profile: ProfileState;
     @Action('fetchData', {namespace}) fetchData: any;
     @Getter('fullName', {namespace}) fullName: string;
+    @Getter('email', {namespace}) email: string;
 
     datatable = {
       headers: [
@@ -161,11 +160,6 @@
       // console.log(this.$http.get('http://jsonplaceholder.typicode.com/posts'));
     }
 
-    // computed variable based on user's email
-    get email() {
-      const user = this.profile && this.profile.user;
-      return (user && user.email) || '';
-    }
 
   }
 </script>

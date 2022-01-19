@@ -9,4 +9,8 @@ export const getters: GetterTree<ProfileState, RootState> = {
     const lastName = (user && user.lastName) || '';
     return `${firstName} ${lastName}`;
   },
+  email(state): string | undefined {
+    const { user } = state;
+    return user ? user.email : undefined;
+  },
 };
