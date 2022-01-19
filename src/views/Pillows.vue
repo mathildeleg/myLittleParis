@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>Combien d'oreillers dans votre vie ?</h1>
         <img src="../assets/coussins/1.png" />
         <div id="count">
             <button v-if="isMinCount()" v-on:click="decrement">-</button>
