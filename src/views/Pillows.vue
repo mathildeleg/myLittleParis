@@ -6,6 +6,6 @@
             <div>number</div>
             <button>+</button>
         </div>
-        <button>Next Page</button>
+        <router-link to="/pillows/save">Next Page</router-link>
     </div>
 </template>
