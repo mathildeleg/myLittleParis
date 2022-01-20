@@ -1,13 +1,15 @@
 <template>
-    <div>
-        <div>
+    <div id="container">
+        <div id="container-form">
             <form>
                 <label for="email">Email</label>
-                <input type="email" name="email" v-on:change="getEmail">
+                <input type="email" name="email" id="email" v-on:change="getEmail">
                 <label for="birthdate">Date of birth</label>
                 <input type="date" name="birthdate" id="birthdate" v-on:change="getBirthDate">
-                <label for="optin">I agree to...</label>
-                <input type="checkbox" name="optin" id="optin" v-on:change="getOptin">
+                <div id="container-optin">
+                    <label for="optin">I agree to...</label>
+                    <input type="checkbox" name="optin" id="optin" v-on:change="getOptin">
+                </div>
             </form>
             <button v-on:click="submitForm" v-if="isSubscriberFulfilled">Save choice</button>
         </div>
@@ -58,3 +60,49 @@
 
 }
 </script>
+
+<style lang="css">
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+#email, #birthdate{
+    background-color: orange;
+    color: white;
+    border: 1px solid orange;
+    border-radius: 10px;
+}
+
+label{
+    font-weight: bold;
+    margin: 10px;
+}
+
+button{
+    border-radius: 10px;
+    width: 100px;
+    padding: 5px;
+    background-color: orange;
+    border: 1px solid orange;
+    color: white;
+    font-weight: bold;
+}
+
+#container-optin{
+    margin: 10px;
+}
+
+</style>
