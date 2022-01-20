@@ -15,9 +15,8 @@
 </template>
 
 <script lang="ts">
-    import {State, Action, Getter} from 'vuex-class';
+    import { Action, Getter } from 'vuex-class';
     import { Component, Vue } from 'vue-property-decorator';
-    import { PillowsState } from '@/store/pillows/types';
 
     const namespace: string = 'pillows';
 
@@ -25,7 +24,6 @@
     export default class PillowsForm extends Vue {
     @Action('postForm', {namespace}) postForm: any;
     @Getter('isSubscriberFulfilled', {namespace}) isSubscriberFulfilled: boolean;
-    @State('pillows') pillows: PillowsState;
 
     constructor() {
       super();
