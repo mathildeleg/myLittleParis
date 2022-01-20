@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { MutationTree } from 'vuex';
 import { PillowsState } from './types';
 
@@ -16,12 +17,12 @@ export const mutations: MutationTree<PillowsState> = {
     }
   },
   putEmail(state, email: string) {
-    state.subscriber.email = email;
+    Vue.set(state.subscriber, 'email', email);
   },
   putBirthDate(state, birthDate: Date) {
-    state.subscriber.birthDate = birthDate;
+    Vue.set(state.subscriber, 'birthDate', birthDate);
   },
   putOptin(state, optin: boolean) {
-    state.subscriber.optin = optin;
+    Vue.set(state.subscriber, 'optin', optin);
   },
 };
