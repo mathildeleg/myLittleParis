@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Combien d'oreillers dans votre vie ?</h1>
-        <img :src="getImgUrl()" />
+        <ImgPillows v-bind:pillow-count="pillowCount"/>
         <div id="count">
             <button v-if="isMinCount()" v-on:click="decrement">-</button>
             <div>{{pillowCount}}</div>
@@ -12,13 +12,18 @@
 </template>
 
 <script lang="ts">
-  import {Component, Prop, Vue} from 'vue-property-decorator';
-  import {Action, Getter} from 'vuex-class';
+  import { Component, Vue } from 'vue-property-decorator';
+  import { Getter } from 'vuex-class';
   import { MAX_PILLOWS, MIN_PILLOWS } from '../store/pillows/mutations';
+  import ImgPillows from '@/components/ImgPillows.vue';
 
   const namespace: string = 'pillows';
 
-  @Component
+  @Component({
+  components: {
+    ImgPillows,
+  },
+})
   export default class Pillows extends Vue {
     @Getter('pillowCount', {namespace}) pillowCount: number;
 
@@ -40,14 +45,6 @@
 
     isMinCount() {
         return this.pillowCount > MIN_PILLOWS;
-    }
-
-    getImgUrl() {
-        try {
-            return require(`../assets/coussins/${this.pillowCount}.png`);
-        } catch (error) {
-            return null;
-        }
     }
 
   }
