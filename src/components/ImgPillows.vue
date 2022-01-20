@@ -7,8 +7,8 @@
 
   @Component
   export default class ImgPillows extends Vue {
-    @Prop([Number]) readonly pillowCount: number
-    
+    @Prop([Number]) readonly pillowCount: number;
+
     constructor() {
       super();
     }
