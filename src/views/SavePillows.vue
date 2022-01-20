@@ -31,9 +31,17 @@
       super();
     }
 
+    isEmailValid(email: string) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*))@((\[[0-9]\.{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+    }
+
     getEmail(event: any) {
         const emailValue = event.target.value;
-        this.$store.commit('pillows/putEmail', emailValue);
+        if(this.isEmailValid(emailValue)) {
+            this.$store.commit('pillows/putEmail', emailValue);
+        } else {
+            console.log('error for email');
+        }
     }
 
     getBirthDate(event: any) {
