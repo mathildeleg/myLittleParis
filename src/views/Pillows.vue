@@ -7,7 +7,7 @@
             <div>{{pillowCount}}</div>
             <button v-if="isMaxCount()" v-on:click="increment">+</button>
         </div>
-        <router-link to="/pillows/save">Next Page</router-link>
+        <router-link to="/pillows/save" id="btn-next">Next Page</router-link>
     </div>
 </template>
 
@@ -49,3 +49,36 @@
 
   }
 </script>
+
+<style lang="css">
+h1{
+  margin: 10px;
+  color: pink;
+}
+
+#btn-next{
+  border-radius: 10px;
+  width: 100px;
+  padding: 5px;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+}
+
+button{
+  border-radius: 50px;
+  padding: 0;
+  border: 1px orange solid;
+  color: orange;
+  background-color: white;
+  width: 25px;
+}
+
+#count{
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+</style>
