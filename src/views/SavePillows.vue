@@ -9,21 +9,23 @@
                 <label for="optin">I agree to...</label>
                 <input type="checkbox" name="optin" id="optin" v-on:change="getOptin">
             </form>
-            <button v-on:click="submitForm">Save choice</button>
+            <button v-on:click="submitForm" v-if="isSubscriberFulfilled">Save choice</button>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-    import {Action, Getter} from 'vuex-class';
+    import {State, Action, Getter} from 'vuex-class';
     import { Component, Vue } from 'vue-property-decorator';
+    import { PillowsState } from '@/store/pillows/types';
 
-  const namespace: string = 'pillows';
+    const namespace: string = 'pillows';
 
-@Component
-export default class PillowsForm extends Vue {
+    @Component
+    export default class PillowsForm extends Vue {
     @Action('postForm', {namespace}) postForm: any;
-    // @Getter('email', {namespace}) email: string | undefined;
+    @Getter('isSubscriberFulfilled', {namespace}) isSubscriberFulfilled: boolean;
+    @State('pillows') pillows: PillowsState;
 
     constructor() {
       super();
