@@ -15,4 +15,13 @@ export const mutations: MutationTree<PillowsState> = {
       state.pillowCount -= 1;
     }
   },
+  putEmail(state, email: string) {
+    state.subscriber.email = email;
+  },
+  putBirthDate(state, birthDate: Date) {
+    state.subscriber.birthDate = birthDate;
+  },
+  putOptin(state, optin: boolean) {
+    state.subscriber.optin = optin;
+  },
 };
