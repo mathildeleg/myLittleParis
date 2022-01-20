@@ -1,5 +1,5 @@
 <template>
-    <img :src="getImgUrl()" />
+  <img :src="getImgUrl()" />
 </template>
 
 <script lang="ts">
