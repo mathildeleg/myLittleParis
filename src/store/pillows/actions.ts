@@ -26,7 +26,7 @@ export const actions: ActionTree<PillowsState, RootState> = {
                 })
             })
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 };

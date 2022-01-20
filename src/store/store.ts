@@ -3,8 +3,13 @@ import Vuex from 'vuex';
 import { profile } from './profile/index';
 import { pillows } from './pillows';
 import { RootState } from './types';
+import VuexPersistence from 'vuex-persist';
 
 Vue.use(Vuex);
+
+const vuexLocal = new VuexPersistence<RootState>({
+  storage: window.localStorage,
+});
 
 export default new Vuex.Store<RootState>({
   state: {
@@ -20,4 +25,5 @@ export default new Vuex.Store<RootState>({
   actions: {
 
   },
+  plugins: [vuexLocal.plugin],
 });
