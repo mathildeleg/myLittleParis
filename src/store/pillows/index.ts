@@ -7,6 +7,7 @@ import { RootState } from '../types';
 
 export const state: PillowsState = {
   pillowCount: 0,
+  subscriber: {},
 };
 
 const namespaced: boolean = true;
